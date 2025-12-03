@@ -31,15 +31,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
         //load content for views. WILL ADD MORE LATER
         if (viewName === "home") loadHomeView();
-        if (viewName === "browse") loadBrowseView();
+        if (viewName === "browse") loadBrowseCategoriesView();
+        if (viewName === "browse-products") loadBrowseView();
     }
 
-    //attatch click listener to nav buttons.
-    document.querySelectorAll(".route").forEach(btn => {
-        btn.addEventListener("click", () => {
-            const view = btn.dataset.view;
-            showView(view);
-        });
+    window.showView = showView;
+
+    //attatch click listener to nav buttons. - any .route button now not just nav bar, needed for home view button.
+    document.addEventListener("click", (e) => {
+        const btn = e.target.closest(".route");
+        if (!btn) return;
+
+        const view = btn.dataset.view;
+        showView(view);
     });
     
     //about modal x button close.

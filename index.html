@@ -21,6 +21,11 @@
     <main class="p-6">
       <article id="view-home" class="view"></article>
       <article id="view-browse" class="view hidden">
+        <h2 class="text-2xl font-bold mb-4">Browse Categories</h2>
+        <div id="browse-category-list" class="grid grid-cols-2 md:grid-cols-3 gap-4"></div>
+      </article>
+
+      <article id="view-browse-products" class="view hidden">
         <div class="flex gap-6">
 
           <!--sidebar for filters on left-->
@@ -33,8 +38,10 @@
               <div class="flex items-center gap-2">
                 <label>Sort</label>
                 <select id="browse-sort" class="border px-2 py-1 rounded">
+                  <option value="pop">Popularity</option>
                   <option value="name">Product Name (A-Z)</option>
                   <option value="price">Price (Low → High)</option>
+                  <option value="price-rev">Price (High → Low)</option>
                   <option value="category">Category</option>
                 </select>
               </div>
@@ -66,5 +73,6 @@
     <script src="js/views/home.js"></script>
     <script src="js/views/about.js"></script>
     <script src="js/views/browse.js"></script>
+    <script src="js/views/categories.js"></script>
   </body>
 </html>
