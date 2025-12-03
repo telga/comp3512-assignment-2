@@ -10,7 +10,6 @@
   <body>
     <header class="bg-gray-900 text-white p-4 flex flex-col text-center items-center">
       <h1 class="text-2xl font-bold mb-2">Brian's Goods</h1>
-
       <nav class="flex gap-3">
         <button class="route px-4 py-2" data-view="home">Home</button>
         <button class="route px-4 py-2" data-view="browse">Browse</button>
@@ -18,15 +17,54 @@
         <button class="route px-4 py-2" data-view="cart">Cart</button>
       </nav>
     </header>
-    
+
     <main class="p-6">
       <article id="view-home" class="view"></article>
+      <article id="view-browse" class="view hidden">
+        <div class="flex gap-6">
+
+          <!--sidebar for filters on left-->
+          <aside id="browse-filters" class="w-64"></aside>
+
+          <!--right sec-->
+          <section class="flex-1">
+            <div class="flex justify-between items-center mb-4">
+              <h2 class="text-xl font-semibold">Results</h2>
+              <div class="flex items-center gap-2">
+                <label>Sort</label>
+                <select id="browse-sort" class="border px-2 py-1 rounded">
+                  <option value="name">Product Name (A-Z)</option>
+                  <option value="price">Price (Low → High)</option>
+                  <option value="category">Category</option>
+                </select>
+              </div>
+            </div>
+            <div id="active-filters" class="flex flex-wrap gap-2 mb-4"></div>
+            <div id="browse-results" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6"></div>
+          </section>
+        </div>
+      </article>
     </main>
 
     <footer class="bg-gray-900 text-white p-4 text-center">
       TO ADD: GITHUB LINKS
     </footer>
+
+    <dialog id="about-dialog" class="max-w-md w-full">
+      <div class="border-b px-4 py-2 flex items-center justify-between bg-gray-100">
+        <h2 class="text-lg font-semibold">About Brain's Goods</h2>
+        <button id="about-x" class="text-gray-500 hover:text-gray-800 text-xl">&times;</button>
+      </div>
+      <div id="about-content" class="p-4"></div>
+      <div class="border-t px-4 py-2 flex justify-end bg-gray-50">
+        <button id="about-close" class="px-4 py-2 bg-gray-900 text-white hover:bg-gray-700">Close</button>
+      </div>
+    </dialog>
+
     <script src="js/app.js"></script>
+    <script src="js/utils/data.js"></script>
     <script src="js/views/home.js"></script>
+    <script src="js/views/about.js"></script>
+    <script src="js/views/browse.js"></script>
   </body>
 </html>
